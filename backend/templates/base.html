@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="/static/assets/bootstrap4/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <style>
+    html, body {
+      height: 100%;
+    }
+    .home {
+      /*position: fixed;*/
+      /*left: 0;*/
+      /*right: 0;*/
+      /*top: 0;*/
+      /*bottom: 0;*/
+    }
+  </style>
+  {% block load_css %}{% endblock %}
+</head>
+<body>
+
+{% block content %}
+{% endblock %}
+
+
+
+
+
+
+<script type="text/javascript" src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='assets/bootstrap4/js/bootstrap.min.js') }}"></script>
+{% block load_js %}{% endblock %}
+<script>
+  $(function () {
+
+  })
+</script>
+</body>
+</html>

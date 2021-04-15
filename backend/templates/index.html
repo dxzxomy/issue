@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!--<div style="width: 100%;height: 100%">-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<!--</div>-->
+
+<div class="data" style="width: 100%;height: 100%">
+  {% for i in all_data %}
+<!--  <li style="white-space: pre-line;">{{ i.pile }}</li>-->
+  <textarea style="width: 100%;height: 100%" class="txt">{{ i.pile }}</textarea>
+{% endfor %}
+
+</div>
+<!--{% for i in all_data %}-->
+<!--<p>{{ i.pile }}</p>-->
+
+<!--{% endfor %}-->
+<button type="button" class="btn btn-primary" id="test">下载</button>
+<button type="button" class="btn btn-secondary" id="modify">编辑</button>
+<button type="button" class="btn btn-secondary" id="store">保存</button>
+
+{% endblock %}
+
+
+
+{% block load_css %}
+{% endblock %}
+
+
+{% block load_js %}
+<script src="http://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+<script>
+$(function() {
+  var data = $(".data").children("li").text();
+  console.log(data);
+  $("#test").click(function () {
+    window.location.href = '/download1'
+  });
+
+  $("#store").click(function () {
+    var e = confirm("请确定是否需要保存");
+    if (e) {
+      var txt = $(".txt").text()
+      $.ajax({
+        url: "/modify",
+        type: "POST",
+        dataType: "json",
+        data: {"txt": JSON.stringify(txt)},
+        success: function (data) {
+          // console.log(data)
+          // alert(data)
+        },
+      })
+    }
+  })
+
+})
+
+
+</script>
+
+
+
+{% endblock %}
