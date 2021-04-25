@@ -6,6 +6,7 @@ Vue.use(Router)
 
 import Layout from '@/views/Layout/Index'
 import Home from '@/views/Home/Index'
+import AboutDetail from '@/views/AboutDetail/Index'
 // import Login from '@/views/Login/Index'
 
 
@@ -23,6 +24,11 @@ const routes = [
         path: '',
         name: 'Home',
         component: Home,
+      },
+      {
+        path: '/aboutdetail',
+        name: 'AboutDetail',
+        component: AboutDetail,
       },
     ],
   },

@@ -1,9 +1,15 @@
 from flask_script import Manager
 from flask_migrate import Migrate,MigrateCommand
-from apps import create_app
-from ext import db
-from apps.user.models import User
-
+try:
+    from backend.apps import create_app
+    from backend.ext import db
+except:
+    import os
+    import sys
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    print(sys.path)
+    from backend.apps import create_app
+    from backend.ext import db
 
 #创建app核心对象
 
