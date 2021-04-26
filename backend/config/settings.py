@@ -2,8 +2,9 @@ ENV = 'development'
 DEBUG = True
 
 import os
+import sys
 class Config:
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:Sanchuang123#@192.168.56.150:3306/test'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:Sanchuang123#@192.168.56.168:3306/test'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = True
     JSON_AS_ASCII = False

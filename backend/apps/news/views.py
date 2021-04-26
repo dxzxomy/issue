@@ -2,7 +2,9 @@ from flask import Blueprint
 from flask_restful import Resource
 from backend.ext import api
 
-user_bp = Blueprint('user', __name__, url_prefix='/api')
+
+
+news_bp = Blueprint('news', __name__, url_prefix='/news')
 
 # @user_bp.route('/')
 # def usercenter():
@@ -13,7 +15,7 @@ user_bp = Blueprint('user', __name__, url_prefix='/api')
 # def register():
 #     return '注册'
 
-class UserResource(Resource):
+class NewsResource(Resource):
 
     def get(self):
         return 'get'
@@ -33,4 +35,4 @@ class UserResource(Resource):
 
         return 'patch'
 
-api.add_resource(UserResource, '/user')
+api.add_resource(NewsResource, '/news')

@@ -37,6 +37,7 @@
 
 <style scoped>
   .news{
+    padding: 40px;
     background-color: #EEEEEE;
   }
 .news-container {
